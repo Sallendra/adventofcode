@@ -7,10 +7,12 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         List<Integer> input = readInput();
-        for (int i = 0; i < input.size(); i++) {
-            System.out.println(input.get(i));
+        List<Integer> fuel = calculateFuel(input);
+        Integer sum = 0;
+        for (int i = 0; i < fuel.size(); i++) {
+            sum = sum + fuel.get(i);
         }
-
+        System.out.println(sum);
         System.out.println("done");
     }
 
@@ -23,6 +25,15 @@ public class Main {
             result.add(Integer.parseInt(scanner.next()));
         }
 
+        return result;
+    }
+
+    private static List<Integer> calculateFuel(List<Integer> input){
+        List<Integer> result = new ArrayList<>();
+        for (int i=0; i < input.size(); i++){
+            Integer fuel = ((input.get(i)/3) - 2);
+            result.add(fuel);
+        }
         return result;
     }
 }
