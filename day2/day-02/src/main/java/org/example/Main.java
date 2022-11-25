@@ -5,7 +5,12 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        tests();
+        List<Integer> input = readInput();
+        input.set(1, 12);
+        input.set(2, 2);
+        List<Integer> output = compute(input);
+        System.out.println(output.get(0));
+        //tests();
     }
 
     private static void tests() {
